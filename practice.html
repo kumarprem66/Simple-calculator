@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="practice.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="display">
+        <input id="input_value" type="text" placeholder="0" />
+      </div>
+
+      <div class="btns">
+        <div>
+          <button onclick="Clear()">Cl</button>
+          <button onclick="fact()">x!</button>
+          <button onclick="display('')">(</button>
+          <button onclick="display('')">)</button>
+          <button onclick="display('%')">%</button>
+          <button onclick="backspace()">AC</button>
+        </div>
+
+        <div>
+          <button onclick="sin()">Sin</button>
+          <button onclick="pi()">pi</button>
+          <button onclick="display('7')">7</button>
+          <button onclick="display('8')">8</button>
+          <button onclick="display('9')">9</button>
+          <button onclick="display('/')">/</button>
+        </div>
+
+        <div>
+          <button onclick="cos()">cos</button>
+          <button onclick="log()">log</button>
+          <button onclick="display('4')">4</button>
+          <button onclick="display('5')">5</button>
+          <button onclick="display('6')">6</button>
+          <button onclick="display('*')">*</button>
+        </div>
+
+        <div>
+          <button onclick="tan()">tan</button>
+          <button onclick="sqrt()">root</button>
+          <button onclick="display('1')">1</button>
+          <button onclick="display('2')">2</button>
+          <button onclick="display('3')">3</button>
+          <button onclick="display('-')">-</button>
+        </div>
+
+        <div>
+          <button onclick="e()">e</button>
+          <button id="power" onclick="powr()">x <span>2</span></button>
+          <button onclick="display('0')">0</button>
+          <button onclick="display('.')">.</button>
+
+          <button onclick="display('+')">+</button>
+          <button onclick="calculate()" class="calculate">=</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let inputValue = document.getElementById("input_value");
+
+      function display(num) {
+        inputValue.value = inputValue.value + num;
+      }
+
+      function calculate() {
+        try {
+          inputValue.value = eval(inputValue.value);
+        } catch {
+          alert("Invalid input");
+        }
+      }
+
+      function sin() {
+        inputValue.value = Math.sin(inputValue.value);
+      }
+
+      function cos() {
+        inputValue.value = Math.cos(inputValue.value);
+      }
+
+      function tan() {
+        inputValue.value = Math.tan(inputValue.value);
+      }
+
+      function log() {
+        inputValue.value = Math.log(inputValue.value);
+      }
+
+      function fact() {
+        var i, num, f;
+        f = 1;
+        num = inputValue.value;
+        for (i = 1; i <= num; i++) {
+          f = f * i;
+        }
+        inputValue.value = f;
+      }
+
+      function pi() {
+        inputValue.value *= 3.14159;
+      }
+
+      function e() {
+        inputValue.value *= 2.718;
+      }
+
+      function backspace() {
+        inputValue.value = inputValue.value.slice(0, -1);
+      }
+
+      function Clear() {
+        inputValue.value = "";
+      }
+
+      function sqrt() {
+        inputValue.value = Math.sqrt(inputValue.value, 2);
+      }
+      function powr() {
+        inputValue.value = Math.pow(inputValue.value, 2);
+      }
+    </script>
+  </body>
+</html>
